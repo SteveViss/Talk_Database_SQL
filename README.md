@@ -61,7 +61,8 @@ In charge: James
 
 #### 9. OpenData discussion
 
-- Open the discussion with questions
+What should be the conventionnal way !
+Draw a diagram illustrating this one.
 
 In charge: Steve
 
