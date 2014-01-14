@@ -9,6 +9,7 @@
 \usepackage{caption}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage[round,authoryear]{natbib}
 \usepackage[protrusion=true,expansion=true]{microtype}
 
 \title[Data Storage]{Data conservation - Perspectives, issues and solutions.}
@@ -74,11 +75,16 @@ All biologists collect data during their career but most of them are using \aler
 
 \begin{frame}{Why do something different ?}{Data lost}
 
-\begin{figure}[t]
-\includegraphics[width=0.50\paperwidth]{Nature_fig.jpg}
-\end{figure}
 
- Data for almost all studies published just two years ago were still accessible, the chance of them being so \alert{fell by 17\% per year}
+\begin{columns}[c]
+	\begin{column}{.50\paperwidth}
+		\includegraphics[width=.50\paperwidth]{Nature_fig.jpg}
+	\end{column}
+	\begin{column}{.4\paperwidth}
+		 Data for almost all studies published just two years ago were still accessible, the chance of them being so \alert{fell by 17\% per year} \citep{Vines2013}
+	\end{column}
+\end{columns}
+
 
 \end{frame}
 
@@ -90,25 +96,22 @@ All biologists collect data during their career but most of them are using \aler
 	
 	\begin{itemize}
 		\item \alert{All datasets} containing specific information given a time and a location \alert{are usefull}.
-		\item Most datasets are built on \alert{public funding} and should be accessible publicly
+		\item 80\% of datasets are built on \alert{public funding} \citep{Graham2013} and should be accessible publicly
 		\item All datasets could be re-used, recycle or valorize (as the 3-R in waste management: Reduce, Reuse, Recycle) 
 	\end{itemize}
 
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%
+%% References
+%%%%%%%%%%%%%%%%
 
+\nocite{Poisot2013a}
 
-%\section{Références}
-
-%	\nocite{Drever2006}
-%	\nocite{Holling1973}
-%	\nocite{Grenon2010}
-
-
-%\begin{frame}[allowsframebreaks]{Référence}
-%	\bibliographystyle{abbrv}
-%	\bibliography{/home/steve/Dropbox/Bibtex/Resilience}	
-%\end{frame}
+\begin{frame}[allowsframebreaks]{Reference}
+	\bibliographystyle{abbrvnat}
+	\bibliography{/home/steve/Dropbox/Bibtex/OpenAccess}	
+\end{frame}
 
 \end{document}
