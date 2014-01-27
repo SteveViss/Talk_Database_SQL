@@ -16,8 +16,7 @@ A quick talk on how structure and conserve data
 In charge: Steve 
 
 #### 2. Why do something different ? 
-
-- Sotaert paper 
+v- Sotaert paper 
 
 In charge: Steve 
 
