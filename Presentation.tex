@@ -1,5 +1,5 @@
 
-\documentclass{eecslides}
+\documentclass[table]{eecslides}
 
 % \usecolortheme{RimouskiDark}
 
@@ -11,7 +11,10 @@
 \usepackage{xcolor}
 \usepackage[round,authoryear]{natbib}
 \usepackage[protrusion=true,expansion=true]{microtype}
-\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\setlength{\extrarowheight}{3pt}
 
 \title[]{Data conservation - Perspectives, issues and solutions.}
 \author[]{\color{white}  Miranda Bryant and Steve Vissault}
@@ -73,7 +76,9 @@ All biologists collect data during their career but most of them are using \aler
 
 \begin{columns}[c]
 	\begin{column}{.50\paperwidth}
-		\includegraphics[width=.50\paperwidth]{Nature_fig.jpg}
+		\begin{figure}
+			\includegraphics[width=.50\paperwidth]{Nature_fig.jpg}
+		\end{figure}
 	\end{column}
 	\begin{column}{.4\paperwidth}
 		 Data for almost all studies published just two years ago were still accessible, the chance of them being so \alert{fell by 17\% per year} \citep{Vines2013}
@@ -116,27 +121,6 @@ All biologists collect data during their career but most of them are using \aler
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Introduction}{Why is a relational database a relevant solution for this context ?}
-	
-	\textbf{Most of Relational databases include:}
-	\begin{itemize}
-		\item \alert{\textbf{Metadata}}: Authors, Year of creation, columns type and description
-			\begin{itemize}
-				\item You ensure the happiness of users after 10 years of database no-used
-			\end{itemize}
-		\item \alert{\textbf{Connectivity}}: Users can get a remote secure access to your own data
-			\begin{itemize}
-				\item You keep the control localy on your data and manage users
-			\end{itemize}
-		\item \alert{\textbf{Exportability:}} User can request data from different platforms and languages (i. e. C, C++, R etc...)
-		\item \alert{\textbf{Province:}} Store modifications and user-related data changes that allow for “roll back” or “updates” to the data
-	\end{itemize}
-
-	%% Following the previous context, RDB seems to be a great and adapted solution to solve our problems.
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -150,7 +134,7 @@ All biologists collect data during their career but most of them are using \aler
 
 \textbf{What is a Relational Database ?}
 		 \begin{itemize}
-			 \item A database is basically a Tables 
+			 \item A database is basically "tables" 
 			\item A Table goes down a row of items and across many columns of attributes. The data can be organized into different tables.
 			\item The tables have “relations” within and to each other
 		 \end{itemize}
@@ -169,6 +153,28 @@ All biologists collect data during their career but most of them are using \aler
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Introduction}{Why is a relational database a relevant solution for this context ?}
+	
+	\textbf{Most of Relational databases include:}
+	\begin{itemize}
+		\item \alert{\textbf{Metadata}}: Authors, Year of creation, columns type and description
+			\begin{itemize}
+				\item You ensure the happiness of users after 10 years of database no-used
+			\end{itemize}
+		\item \alert{\textbf{Connectivity}}: Users can get a remote secure access to your own data
+			\begin{itemize}
+				\item You keep the control localy on your data and manage users
+			\end{itemize}
+		\item \alert{\textbf{Exportability:}} User can request data from different platforms and languages (i. e. C, C++, R etc...)
+		\item \alert{\textbf{Provenence:}} Store modifications and user-related data changes that allow for “roll back” or “updates” to the data
+	\end{itemize}
+
+	%% Following the previous context, RDB seems to be a great and adapted solution to solve our problems.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Relational database}{What is a Relational Database ?}
 
 \textbf{Four essential components:}
@@ -176,18 +182,50 @@ All biologists collect data during their career but most of them are using \aler
 			 \item Row or Tuple : “A data set representing a single item” 
 			\item Column: “A labeled element of a row” such an address, name, etc.
 			\item Table: Contains data items in rows and columns
-			\item Relationships : Links between tables (\textbf{See with Miranda})
+			\item Relationships : Links between tables and within table 
 		 \end{enumerate}
 
 	\textbf{Each components is embedded in a design diagram}
-
-%% This slide is perhaps a little bit redondant with all informations provide by the previous slide. See with Miranda.
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Slide missing: Table employees table. See with Miranda if that could be extract from the case study (Tree table instead of using employees table)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Relational database}{Table example}
+
+\resizebox{\textwidth}{!}{
+	\begin{figure}
+		\begin{tabular}{cccccccccc}
+			 \rowcolor{BlueBG}
+			\hline
+			ID PEP MES & YR & NO ARBRE & LATITUDE & LONGITUDE & DHPMM & CL DRAI & ESSENCE & ST CM2 & AGE\\
+			\hline
+			710AB& 1971 & 6 & 49.68091 & -74.96537 &  92 & NA & PIG &  66.48 & 39\\
+			
+			73096& 2005 & 52 & 47.88118 & -76.17882 & 125 & 30 & EPN & 122.72 & 93\\
+			
+			70004&2015 & 31 & 45,53753 & -71,08277 & 101 & NA & SAB &  80.12 & 47\\
+			
+			76013& 1992 & 2 &48,24704 &-69,67055 & 192 & 10 & PET & 289.53 & 52\\
+			
+			75010& 2007 & 49 & 48.43693 & -75.91256 & NA & 30 & NA &   0.00 & 18\\
+			
+			73008& 1980 & 13 & 47.50123 & -74.38295 & 187 &0 &RIR & 274.65 & 62\\
+			
+			72094& 1987 & 15 & 47.13014 & -76.02298 & 161 & NA & EPN & 203.58 & 55\\
+			
+			70094 & 2007 & 10 & 48.28338 & -71.73171 & 170 & 20 & & 226.98 & 68\\
+			
+			71006& 1992 & 25 & 47.32089 & -71.11494 & 162 & 20 & SAB & 206.12 & 45\\
+			
+			76095 & 2003 & 17 & 47.38095 & -71.72239 & 277 & 40 & SAB & 602.63 & 54\\
+			\hline
+		\end{tabular}
+	\end{figure}}
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,13 +234,75 @@ All biologists collect data during their career but most of them are using \aler
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Design components}{Usage of keys in table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\alert{\textbf{Table contain keys:}}
-		 \begin{description}
-			 \item [Primary Keys] A key that is unique to the table to help identify a record
-			\item [Composite Keys] A key that combines two or more columns to create a unique key into the table
-		\end{description}
+\begin{frame}{Design components}{Wrong or messy informations}
+
+\resizebox{\textwidth}{!}{
+	\begin{figure}
+		\begin{tabular}{cccccccccc}
+			 \rowcolor{BlueBG}
+			\hline
+			ID PEP MES & YR & NO ARBRE & LATITUDE & LONGITUDE & DHPMM & CL DRAI & ESSENCE & ST CM2 & AGE\\
+			\hline
+			\cellcolor{red!50}710AB& 1971 & 6 & 49.68091 & -74.96537 &  92 & NA & PIG &  66.48 & 39\\
+			
+			73096& 2005 & 52 & 47.88118 & -76.17882 & 125 & 30 & EPN & 122.72 & 93\\
+			
+			70004& \cellcolor{red!50}2015 & 31 & 45,53753 & -71,08277 & 101 & NA & SAB &  80.12 & 47\\
+			
+			76013& 1992 & 2 & \cellcolor{red!50}48,24704 & \cellcolor{red!50}-69,67055 & 192 & 10 & PET & 289.53 & 52\\
+			
+			75010& 2007 & 49 & 48.43693 & -75.91256 & NA & 30 & NA &   0.00 & 18\\
+			
+			73008& 1980 & 13 & 47.50123 & -74.38295 & 187 & \cellcolor{red!50}0 & \cellcolor{red!50}RIR & 274.65 & 62\\
+			
+			72094& 1987 & 15 & 47.13014 & -76.02298 & 161 & NA & EPN & 203.58 & 55\\
+			
+			70094 & 2007 & 10 & 48.28338 & -71.73171 & 170 & 20 & \cellcolor{red!50} & 226.98 & 68\\
+			
+			71006& 1992 & 25 & 47.32089 & -71.11494 & 162 & 20 & SAB & 206.12 & 45\\
+			
+			76095 & 2003 & 17 & 47.38095 & -71.72239 & 277 & 40 & SAB & 602.63 & 54\\
+			\hline
+		\end{tabular}
+	\end{figure}}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Design components}{Redundancy or calculated field}
+
+\resizebox{\textwidth}{!}{
+	\begin{figure}
+		\begin{tabular}{cccccccccc}
+			 \rowcolor{BlueBG}
+			\hline
+			ID PEP MES & YR & NO ARBRE &  \cellcolor{red!50} LATITUDE & \cellcolor{red!50}LONGITUDE & DHPMM & CL DRAI & ESSENCE & \cellcolor{red!50}ST CM2 & AGE\\
+			\hline
+			710AB& 1971 & 6 & 49.68091 & -74.96537 &  92 & NA & PIG &  66.48 & 39\\
+			
+			73096& 2005 & 52 & 47.88118 & -76.17882 & 125 & 30 & EPN & 122.72 & 93\\
+			
+			70004& 2015 & 31 & 45,53753 & -71,08277 & 101 & NA & SAB &  80.12 & 47\\
+			
+			76013& 1992 & 2 & 48,24704 & -69,67055 & 192 & 10 & PET & 289.53 & 52\\
+			
+			75010& 2007 & 49 & 48.43693 & -75.91256 & NA & 30 & NA &   0.00 & 18\\
+			
+			73008& 1980 & 13 & 47.50123 & -74.38295 & 187 & 0 & RIR & 274.65 & 62\\
+			
+			72094& 1987 & 15 & 47.13014 & -76.02298 & 161 & NA & EPN & 203.58 & 55\\
+			
+			70094 & 2007 & 10 & 48.28338 & -71.73171 & 170 & 20 &  & 226.98 & 68\\
+			
+			71006& 1992 & 25 & 47.32089 & -71.11494 & 162 & 20 & SAB & 206.12 & 45\\
+			
+			76095 & 2003 & 17 & 47.38095 & -71.72239 & 277 & 40 & SAB & 602.63 & 54\\
+			\hline
+		\end{tabular}
+	\end{figure}}
 
 \end{frame}
 
@@ -210,7 +310,7 @@ All biologists collect data during their career but most of them are using \aler
 
 \begin{frame}{Design components}{Normalization}
 
-\textbf{Some tricks to keep in mind about database normalization:}
+\textbf{What's normalization ?}
 
 		\begin{itemize}
 			\item Do not have the “one file” or “one table” mentality
@@ -220,6 +320,18 @@ All biologists collect data during their career but most of them are using \aler
 				\item These are “technical”, but they describe the stages a database development will go through
 			\end{itemize}
 		\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Design components}{A table contains keys}
+
+\alert{\textbf{Table contain keys:}}
+		 \begin{description}
+			 \item [Primary Keys] A key that is unique to the table to help identify a record
+			\item [Composite Keys] A key that combines two or more columns to create a unique key into the table
+		\end{description}
 
 \end{frame}
 
@@ -238,24 +350,49 @@ All biologists collect data during their career but most of them are using \aler
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%
-\section{Case studies}
-%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Design components}{Relationships}
 
-\centering
-\textbf{Messy flat file example}
+\begin{frame}{Design components}{Last example not normalized}
+
+\resizebox{\textwidth}{!}{
+	\begin{figure}
+		\begin{tabular}{cccccccccc}
+			 \rowcolor{BlueBG}
+			\hline
+			ID PEP MES & YR & NO ARBRE & LATITUDE & LONGITUDE & DHPMM & CL DRAI & ESSENCE & ST CM2 & AGE\\
+			\hline
+			710AB& 1971 & 6 & 49.68091 & -74.96537 &  92 & NA & PIG &  66.48 & 39\\
+			
+			73096& 2005 & 52 & 47.88118 & -76.17882 & 125 & 30 & EPN & 122.72 & 93\\
+			
+			70004&2015 & 31 & 45,53753 & -71,08277 & 101 & NA & SAB &  80.12 & 47\\
+			
+			76013& 1992 & 2 &48,24704 &-69,67055 & 192 & 10 & PET & 289.53 & 52\\
+			
+			75010& 2007 & 49 & 48.43693 & -75.91256 & NA & 30 & NA &   0.00 & 18\\
+			
+			73008& 1980 & 13 & 47.50123 & -74.38295 & 187 &0 &RIR & 274.65 & 62\\
+			
+			72094& 1987 & 15 & 47.13014 & -76.02298 & 161 & NA & EPN & 203.58 & 55\\
+			
+			70094 & 2007 & 10 & 48.28338 & -71.73171 & 170 & 20 & & 226.98 & 68\\
+			
+			71006& 1992 & 25 & 47.32089 & -71.11494 & 162 & 20 & SAB & 206.12 & 45\\
+			
+			76095 & 2003 & 17 & 47.38095 & -71.72239 & 277 & 40 & SAB & 602.63 & 54\\
+			\hline
+		\end{tabular}
+	\end{figure}}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Design components}{Relationships}
+\begin{frame}{Design components}{New and cleanest design}
 
-\textbf{\alert{Need to be transform to a cleanest design without redundancy}}
+\textbf{\alert{Need to be transform to the cleanest design without redundancy}}
 \vspace{0.2cm}
 	\begin{center}
 		\includegraphics[width=0.8\paperwidth]{Ex1_pres_30Sept.png}
@@ -268,17 +405,165 @@ All biologists collect data during their career but most of them are using \aler
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{How to create this design ?}{SQL language}
+
+\textbf{What does SQL mean?}
+\begin{itemize}
+	\item “Structured Query Language”
+	\item This language was designed to be cross-platform to handle data in relational databases
+	\item The International Organization for Standardization  the language in 1981
+	\item Provides cross-platform consistence (most of the time)
+\end{itemize}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%
-\section{QUICC-FOR}
-%%%%%%%%%%%%%%%%
+
+\begin{frame}{How to create this design ?}{Create table}
+
+\textbf{Table example creation:}
+\begin{block}{SQL Code}
+\begin{tabbing}
+\texttt{CREATE TABLE "TBL-Tree" (\\
+		\hspace{1cm} "Plot-ID" int NOT NULL,\\
+		\hspace{1cm} "Tree-ID" int NOT NULL,\\
+		\hspace{1cm} "Year-Measured" numeric(4) NOT NULL,\\
+		\hspace{1cm} "Species-Code" char(3) NULL,\\
+		\hspace{1cm} "Height" float8 NULL,\\
+		\hspace{1cm} "DBH" numeric(5) NULL,\\
+		\hspace{1cm} "Age" int NULL,\\
+PRIMARY KEY ("Plot-ID", "Tree-ID", "Year-Measured") \\
+);
+}
+\end{tabbing}
+\end{block}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Basic manipulation}{Update}
+
+\textbf{Simple to update to a large amount of data:}
+
+\begin{block}{SQL Code}
+\texttt{
+UPDATE Tree-Species\\
+	\hspace{1cm} SET genus-name = ‘Acer’\\
+	\hspace{1cm} WHERE species-id = ’sacchaurm’;
+
+}
+\end{block}
+Every update is recorded so if there is an error, it can be “rolled back” (undo)
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{QUICC-FOR Example}{Diagram}
+
+\vspace{0.2cm}
+	\begin{center}
+		\includegraphics[width=0.8\paperwidth]{UML_QUICC.png}
+	\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{QUICC-FOR Example}{Diagram}
+
+\textbf{QUICC FOR – A real-life example}
+\begin{itemize}
+	\item Data from two countries, over many years and many sources
+	\item Data is in varying formats, all publicly available
+	\item Created a normalized Database to store data
+	\item Created a schema to merge and clean data
+	\item Then worked to create a new schema that incorporates all data
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Relationnal Database}{Disadvantages}
+
+\textbf{Some disadvantages:}
+	\begin{itemize}
+		\item New system to learn that is not always intuitive
+		\item System has to be setup to run a database
+		\item Poor database design could be “worse” than a basic flat file
+		\item Maintenance cost can be higher
+	\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Relationnal Database}{Advantages}
+
+\textbf{Some advantages:}
+	\begin{itemize}
+		\item “Coarse” data is never touched except by certain users
+		\item Most users are always working on a query
+		\item Data is publicly available but more secure 
+		\item Multiple users can access data
+		\item Log of all modifications with username
+		\item Ability to “roll back” changes
+		\item Size of data only limited by storage
+		\item Secure, long distance connections to data
+	\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Relationnal Database}{Exportability}
+
+\textbf{Where can SQL be used ?}
+	\begin{itemize}
+			\item R
+			\item Java
+			\item C
+			\item C++
+			\item Perl
+			\item Python
+			\item .Net 
+	\end{itemize}
+\end{frame}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
 \section{Conclusion}
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Conclusion}{Metadata}
+
+\textbf{What's metadata ?}
+	\begin{description}
+		\item [Defined:] “Metadata is data about data”
+		\item [Examples:] Author, Journal Title, Edition, Publication Date or Tree description, date updated, collection date
+	\end{description}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Conclusion}{Throughts}
+
+\textbf{According to \citet{Goodman2014}, we need to keep focus on those points:}
+	\begin{enumerate}
+		\item Love your data and help others love it too
+		\item Share your data online with a permanent identifier
+		\item Conduct science with a particular level of reuse in mind
+	\end{enumerate}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%
 %% References

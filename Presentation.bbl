@@ -1,9 +1,14 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Goodman et~al.(2014)Goodman, Pepe, and Blocker]{Goodman2014}
+A.~Goodman, A.~Pepe, and A.~Blocker.
+\newblock {10 Simple Rules for the Care and Feeding of Scientific Data}.
+\newblock \emph{arXiv preprint arXiv: \ldots}, pages 1--9, 2014.
 
 \bibitem[Graham(2013)]{Graham2013}
 D.~Graham.
