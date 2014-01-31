@@ -1,7 +1,7 @@
 Data conservation: Perspectives, issues and solutions
 =================
 
-**By Miranda Bryant(1) and Steve Vissault(2,*) **
+**By Miranda Bryant(1) and Steve Vissault(2,*)**
 
 *1. Programmer/ Data analyst. Theorical ecosystem lab, Université du Québec à Rimouski.<br/>*
 *2.  Biologist (BcS). Theorical ecosystem lab, Université du Québec à Rimouski.<br/>*
