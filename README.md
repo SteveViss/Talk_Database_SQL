@@ -1,67 +1,13 @@
 Talk_Database_SQL
 =================
 
-A quick talk on how structure and conserve data 
+Many biologists collect data but they don't care about conservation and utilisation of datasets after their research. Nature announced in December 2013 that two years after the publication almost 17% of datasets are lost each year. In this context, it’s important to store data on well-supported and normalized platforms. This presentation doesn't assume to provide you the best solution but offers some ways to acquire best practices in data conservation for biologists. Some important points and questions are:
 
-## Data conservation: Perspectives, issues and solutions
+    - Why is a Relationnal database (RDB) more relevant way to store data in Science ?
+    - What's Structured Query Language (SQL) ?
+    - Some examples of tables, relationships and finally, database creation.
+    - Advantages and disadvantages in using a RDB
+    - What's a metadata file ? 
+    - Some general laws in data conservation to keep in mind.
 
-**Authors:** Miranda Talluto and Steve Vissault
-
-#### 1. Conventionnal way to store data 
-
-- Text file
-- CSV file
-- Excel fiel
-
-In charge: Steve 
-
-#### 2. Why do something different ? 
-v- Sotaert paper 
-
-In charge: Steve 
-
-#### 3. About lost data 
-
-- See [article](http://www.nature.com/news/scientists-losing-data-at-a-rapid-rate-1.14416) in Nature Journal
-- Add some statistic
-
-In charge: Steve
-
-#### 4. How to do something different ? 
-
-- Define relationnal database (RDB)
-
-In charge: Miranda
-
-#### 5. How to create a relationnal database 
-
-- SQL langage presentation
-
-In charge: Miranda
-
-#### 6. Some queries (basic example)
-
-In charge: Miranda
-
-#### 7. Exportability of SQL
-
-- R
-- Python
-- PostGIS and QGIS
-
-In charge: Miranda
-
-#### 8. What is available at UQAR ?
-
-- Plateform accessible
-- Security and back-up procedure
-
-In charge: James
-
-#### 9. OpenData discussion
-
-What should be the conventionnal way !
-Draw a diagram illustrating this one.
-
-In charge: Steve
-
+We will finish this meeting with a discussion on OpenData in science. 
